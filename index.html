@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smash Zulia Sets</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <!-- <a href="http://" target="_blank" rel="noopener noreferrer">Twitch</a> -->
+    <a href="https://www.youtube.com/@SmashZulia-OF" target="_blank" rel="noopener noreferrer">Youtube</a>
+    <a href="https://twitter.com/SmashZulia" target="_blank" rel="noopener noreferrer">Twitter</a>
+    <a href="#" target="_blank" rel="noopener noreferrer">Stats</a>
+    <a href="http://" target="_blank" rel="noopener noreferrer">Github</a>
+  </nav>
+
+  <main class="main-container">
+    <div class="content">
+
+      <h1 class="page-header es"> Historial de Partidas de Smash Zulia</h1>
+  
+      <h1 class="page-header en hidden">SMASH ZULIA SET SEARCHER</h1>
+  
+      <h2 class="page-subheader es">Busca cualquier set de torneo que se haya grabado o transmitido</h2>
+  
+      <h2 class="page-subheader en hidden">Search for any set in a Zulia Tournament that has been recorded or streamed</h2>
+    
+      <div class="filters">
+  
+        <label class="filter-label" for="player-one">Jugador 1</label>
+        <div class="left-filters filters-section" name="player-one">
+          <select name="charFil1" id="char-filter-one" class="filter-input">
+            <option value="">Personaje</option>
+          </select>
+          <select name="playFil1" id="player-filter-one" class="filter-input">
+            <option value="">Tag</option>
+          </select>
+        </div>
+  
+
+        <label class="filter-label" for="details">Detalles</label>
+        <div class="middle-filters filters-section" name="details">
+          <select name="dateFil" id="date-filter" class="filter-input">
+            <option value="">Fecha</option>
+          </select>
+  
+          <select name="tournamentFil" id="tournament-filter" class="filter-input">
+            <option value="">Torneo</option>
+          </select>
+        </div>
+  
+        <label class="filter-label" for="player-two">Jugador 2</label>
+        <div class="right-filters filters-section" name="player-two">
+          <select name="charFil2" id="char-filter-two" class="filter-input">
+            <option value="">Personaje</option>
+          </select>
+          <select name="playFil2" id="player-filter-two" class="filter-input">
+            <option value="">Tag</option>
+          </select>
+        </div>
+        
+      </div>
+      <div class="search-container">
+        <button class="search-button" id="search-button">
+          <span class="button-label en hidden">Search</span>
+          <span class="button-label es">Buscar</span>
+        </button>
+      </div>
+    
+      <div class="list-container">
+        <label for="game-list" class="gl-label">Jugador 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detalles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jugador 2</label>
+        <ul id="game-list" class="game-list" name="game-list">
+          <!-- <li class="game-list-item" id="game-list-item">
+            
+            <div class="player-one item-section">
+              <div class="player-name" title="Amesty">Amesty</div>
+              <img class="player-character winner-char" src="/img/chara_0_mario_00.png" width="75px" height="75px"/>
+            </div>
+  
+            <div class="set-data item-section">
+              <div class="set-tournament" title="LC: Unova Smash League">LC: Unova Smash League</div>
+              <div class="set-date">28-07-2025</div>
+              <div class="set-result">
+                <span class="winner-count">3</span><span class="loser-count">1</span>
+              </div>
+              <a href="https://www.youtube.com/live/6i6QtlFK3jw?si=P2FFXnNj2GP3gAfd&t=22440" target="_blank" class="set-link">Link</a>
+            </div>
+  
+            <div class="player-two item-section">
+              <div class="player-name" title="Pelox">Pelox</div>
+              <img class="player-character loser-char" src="/img/chara_0_mario_00.png" width="75px" height="75px"/>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  
+  
+    <!-- <a id="testlink" target="_blank" href="https://www.youtube.com/live/6i6QtlFK3jw?si=P2FFXnNj2GP3gAfd&t=22440">
+      Click here to watch amesty-pelox grand finals
+    </a> -->
+  </main>
+
+  <script src="index.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+:root{
+  font-size: 18px;
+  font-family: Helvetica;
+  --calico: rgba(222, 191, 142);
+  --madison:rgba(11, 54, 104);
+  --pigeon-post: rgba(180, 202, 222);
+  --comet: rgb(86, 98, 118);
+  --pampas: rgba(235, 231, 224);
+  --astral: rgba(53, 120, 178);
+  --cloudy: rgb(178, 177, 175);
+  --mine-shaft: rgba(39, 39, 39);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.main-container{
+  background-color: var(--madison);
+  color: var(--pampas);
+  width: 100%;
+  min-height: 96vh;
+  overflow-y: auto;
+  justify-items: center;
+}
+
+.navbar{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  background-color: var(--calico)
+}
+
+.navbar > a {
+  color: var(--madison);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.content{
+  width: 80%;
+}
+
+.page-header{
+  color: var(--pampas);
+  text-align: center;
+  /* text-shadow: var(--calico) 0px 1px 10px; */
+}
+
+.page-subheader{
+  text-align: center;
+  font-weight: lighter;
+  color: var(--pampas);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.filters{
+  justify-content: space-around;
+}
+
+.filter-label{
+  font-size: 1.1rem;
+}
+
+.filters-section{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.filters-section:last-child{
+  margin-bottom: 0;
+}
+
+.filter-input{
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  background-color: var(--mine-shaft);
+  color: var(--pampas);
+  border-radius: 8px;
+  border: var(--astral) solid 1px;
+}
+
+.search-container{
+  width: 80%;
+  justify-self: center;
+  margin: 1rem 0;
+}
+
+.search-button{
+  width: 100%;
+  border-radius: 5px;
+  padding: 0.25rem;
+  background-color: var(--calico);
+  color: var(--madison);
+}
+
+.gl-label{
+  background-color: var(--calico);
+  color: var(--madison);
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.list-container{
+  /* background-color: purple; */
+  justify-self: center;
+  width: 100%;
+}
+
+.game-list{
+  list-style: none; 
+}
+
+.game-list-item{
+  display: flex;
+  justify-content:space-around;
+  background-color: var(--mine-shaft);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.item-section{
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+}
+
+.player-one, .player-two{
+  text-align: center;
+  display: flex;
+}
+
+.player-name{
+  font-size: 0.7rem;
+  padding: 0.2rem;
+  color: var(--calico);
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.set-data{
+  gap: 0.2rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.winner-count{
+  color: lime;
+}
+
+.loser-count{
+  color: red;
+}
+
+.set-tournament{
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.set-date{
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.set-result{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.set-link{
+  color: var(--calico);
+}
+
+.player-character{
+  align-self: center;
+  width: 75px;
+  height: 75px;
+}
+
+.winner-char{
+  animation: winner-glow 3s linear infinite;
+}
+
+.loser-char{
+  animation: loser-glow 3s linear infinite;
+}
+
+@keyframes winner-glow {
+  0%{
+    filter: drop-shadow(0px 0px 4px lime);
+  }
+  50%{
+    filter: drop-shadow(0px 0px 4px darkgreen);
+  }
+  100%{
+    filter: drop-shadow(0px 0px 4px lime);
+  }
+}
+
+@keyframes loser-glow {
+  0%{
+    filter: drop-shadow(0px 0px 4px red);
+  }
+  50%{
+    filter: drop-shadow(0px 0px 4px darkred);
+  }
+  100%{
+    filter: drop-shadow(0px 0px 4px red);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .navbar{
+    justify-content: space-around;
+  }
+
+  .page-header{
+    margin: 1rem 0;
+    font-size: 2.3rem;
+  }
+
+  .page-subheader{
+    text-decoration: underline;
+  }
+
+  .search-button{
+    font-size: 1.2rem;
+  }
+
+  .gl-label{
+    font-size: 1.2rem;
+    word-spacing: 1rem;
+  }
+
+  .content{
+    width: 65%;
+  }
+
+  .player-character{
+    align-self: center;
+    width: 100px;
+    height: 100px;
+  }
+  .player-name{
+    font-size: 1rem;
+  }
+  .filter-input{
+    font-size: 1rem;
+  }
+}
+
+.hidden{
+  display: none;
+}
