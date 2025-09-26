@@ -4,7 +4,7 @@ let config = {
   locateFile: filename => `https://unpkg.com/sql.js/dist/${filename}`
 }
 
-const response = await fetch("/testdb.db")
+const response = await fetch("https://8neon8.github.io/smash-zulia-games/testdb.db")
 const arrayBuffer = await response.arrayBuffer();
 
 
