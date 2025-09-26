@@ -1,5 +1,23 @@
 import gamesInfo from './games.js'
 
+let config = {
+  locateFile: filename => `https://unpkg.com/sql.js/dist/${filename}`
+}
+
+const response = await fetch("/testdb.db")
+const arrayBuffer = await response.arrayBuffer();
+
+
+initSqlJs(config).then(function(SQL){
+
+  const db = new SQL.Database(new Uint8Array(arrayBuffer))
+
+  const res = db.exec("SELECT * FROM test");
+  console.log(res);
+
+});
+
+
 let setList = gamesInfo.setList
 let showList = []
 
@@ -162,7 +180,7 @@ function createListItem(itemList){
 
     let playerOneCharImg = makeEl('img')
     //*convert al images to webp, name them exactly like character name to search the image 1:1
-    playerOneCharImg.setAttribute('src','/img/chara_0_mario_00.png')
+    playerOneCharImg.setAttribute('src','https://8neon8.github.io/smash-zulia-games/img/chara_0_mario_00.png')
     addClasses(playerOneCharImg, ['player-character'])
 
     if(itemList[i].setCount[0] > itemList[i].setCount[1]){
