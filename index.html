@@ -13,10 +13,49 @@
     <a href="https://twitter.com/SmashZulia" target="_blank" rel="noopener noreferrer">Twitter</a>
     <a href="#" target="_blank" rel="noopener noreferrer">Stats</a>
     <a href="http://" target="_blank" rel="noopener noreferrer">Github</a>
+    <a href="/dbupdate/dbupdate.html">update</a>
   </nav>
+
+  <div id="help-dialog" class="help-dialog hidden">
+
+    <div class="faq">
+      <img src="x.svg" id="close-dialog" width="25px" height="25px" >
+      <h2 style="text-align: center;">Preguntas Frec.</h2>
+
+      <ul class="faq-list">
+        <li class="faq-list-item">
+          <h4 class="faq-list-item-title">¿Como funciona la busqueda?</h4>
+          <p class="faq-list-item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, natus officiis! Odit eius accusantium fugit fuga consequuntur iusto, placeat sed possimus voluptates aliquam expedita doloribus nisi illo, illum pariatur reprehenderit.</p>
+        </li>
+
+        <li class="faq-list-item">
+          <h4 class="faq-list-item-title">No aparece nada del torneo X</h4>
+          <p class="faq-list-item-text">Si un set no fue transmitido o grabado y subido a un canal de youtube, no aparecera aquí, no puedo hacer magia lastimosamente.</p>
+        </li>
+
+        <li class="faq-list-item">
+          <h4 class="faq-list-item-title">Las partidas de X torneo que se transmitio/grabo no aparecen todavia</h4>
+          <p class="faq-list-item-text">Si es muy reciente, tomara un poco de tiempo, por ahora solo hay una persona(yo) manteniendo las partidas actualizadas, eventualmente estaran asi que solo hay que esperar.</p>
+        </li>
+
+        <li class="faq-list-item">
+          <h4 class="faq-list-item-title">¿Puedo ayudar a llenar la informacion de las partidas?</h4>
+          <p class="faq-list-item-text">
+            En resumen, si, por ahora solo a travez de este <a href="#" target="_blank" rel="noopener noreferrer" style="color: var(--calico); text-decoration: none;">formulario de google(WIP)</a>, y asi solo tendria que revisar que el link sea correcto, toda ayuda se agradece.
+            
+            Por favor asegurarse que el link contiene el tiempo en donde empieza el set.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <main class="main-container">
     <div class="content">
+
+      <div class="help-button" id="help-button">
+        <img src="/help-circle.svg" class="help-icon" width="40px" height="40px">
+      </div>
 
       <h1 class="page-header es"> Historial de Partidas de Smash Zulia</h1>
   
@@ -28,8 +67,8 @@
     
       <div class="filters">
   
-        <label class="filter-label" for="player-one">Jugador 1</label>
         <div class="left-filters filters-section" name="player-one">
+          <label class="filter-label" for="player-one">Jugador 1</label>
           <select name="charFil1" id="char-filter-one" class="filter-input">
             <option value="">Personaje</option>
           </select>
@@ -39,8 +78,8 @@
         </div>
   
 
-        <label class="filter-label" for="details">Detalles</label>
         <div class="middle-filters filters-section" name="details">
+          <label class="filter-label" for="details">Detalles</label>
           <select name="dateFil" id="date-filter" class="filter-input">
             <option value="">Fecha</option>
           </select>
@@ -50,8 +89,8 @@
           </select>
         </div>
   
-        <label class="filter-label" for="player-two">Jugador 2</label>
         <div class="right-filters filters-section" name="player-two">
+          <label class="filter-label" for="player-two">Jugador 2</label>
           <select name="charFil2" id="char-filter-two" class="filter-input">
             <option value="">Personaje</option>
           </select>
@@ -69,7 +108,11 @@
       </div>
     
       <div class="list-container">
-        <label for="game-list" class="gl-label">Jugador 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detalles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jugador 2</label>
+        <div class="gl-label">
+          <span>Jugador 1</span>
+          <span>Detalles</span>
+          <span>Jugador 2</span>
+        </div>
         <ul id="game-list" class="game-list" name="game-list">
           <!-- <li class="game-list-item" id="game-list-item">
             

@@ -59,10 +59,6 @@
   margin-bottom: 1rem;
 }
 
-.filters{
-  justify-content: space-around;
-}
-
 .filter-label{
   font-size: 1.1rem;
 }
@@ -200,6 +196,83 @@
   animation: loser-glow 3s linear infinite;
 }
 
+.help-button{
+  margin-top: 3rem;
+  float: right;
+  background-color: var(--pampas);
+  z-index: 10;
+  border-radius: 50%;
+  padding: 0.1rem;
+  animation: help-glow 3s linear infinite;
+}
+
+.help-icon{
+  vertical-align: middle;
+}
+
+.help-button:hover{
+  cursor: pointer;
+}
+
+.help-button:active{
+  background-color: var(--cloudy);
+}
+
+.help-dialog{
+  background-color: rgba(235, 231, 224, 0.2);
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  align-items: center;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.faq{
+  background-color: var(--madison);
+  color: var(--pampas);
+  width: 95%;
+  padding: 0.3rem;
+  border-radius: 8px;
+}
+
+.faq-list{
+  list-style: none;
+  padding: 0.2rem;
+}
+
+.faq-list-item{
+  margin-bottom: 1rem;
+}
+
+.faq-list-item-title{
+  text-align: center;
+}
+
+.faq-list-item-text{
+  padding: 0.3rem;
+  line-height: 1.5rem;
+}
+
+#close-dialog{
+  background-color: var(--pampas); 
+  border-radius: 50%; 
+  border: 3px solid var(--calico); 
+  float: right; 
+  z-index: 20;
+}
+
+#close-dialog:hover{
+  cursor: pointer;
+}
+
+#close-dialog:active{
+  background-color: var(--cloudy);
+}
+
 @keyframes winner-glow {
   0%{
     filter: drop-shadow(0px 0px 4px lime);
@@ -224,6 +297,18 @@
   }
 }
 
+@keyframes help-glow {
+  0%{
+    filter: drop-shadow(0px 0px 8px var(--pampas));
+  }
+  50%{
+    filter: drop-shadow(0px 0px 4px var(--astral));
+  }
+  100%{
+    filter: drop-shadow(0px 0px 8px var(--pampas));
+  }
+}
+
 @media screen and (min-width: 1200px) {
 
   .navbar{
@@ -244,8 +329,13 @@
   }
 
   .gl-label{
+    display: flex;
+    
+  }
+
+  .gl-label > span {
     font-size: 1.2rem;
-    word-spacing: 1rem;
+    width: 33%;
   }
 
   .content{
@@ -262,6 +352,38 @@
   }
   .filter-input{
     font-size: 1rem;
+  }
+
+  .filters{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+  }
+
+  .help-dialog{
+    background-color: rgba(235, 231, 224, 0.4);
+  }
+
+  .faq{
+    background-color: var(--madison);
+    color: var(--pampas);
+    width: 55%;
+    padding: 0.3rem;
+  }
+
+  .faq-list{
+    list-style: none;
+    padding: 1rem;
+  }
+
+  .faq-list-item-title{
+    text-align: center;
+    font-size: 1.4rem;
+  }
+
+  .faq-list-item-text{
+    padding: 0.3rem;
+    line-height: 1.5rem;
   }
 }
 

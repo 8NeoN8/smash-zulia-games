@@ -1,21 +1,47 @@
 import gamesInfo from './games.js'
 
-let config = {
-  locateFile: filename => `https://unpkg.com/sql.js/dist/${filename}`
+let helpDialog = document.getElementById('help-dialog')
+let openDialog = document.getElementById('help-button')
+let closeDialog = document.getElementById('close-dialog')
+
+openDialog.addEventListener('click', () => {
+  helpDialog.classList.remove('hidden')
+})
+
+closeDialog.addEventListener('click', () => {
+  helpDialog.classList.add('hidden')
+})
+
+testDB()
+
+async function testDB(){
+  const db = await getDB()
+
+  let str1 = "SELECT name FROM sqlite_master WHERE type='table';" //"SELECT name FROM sqlite_master WHERE type='table';"
+  let res1 = db.exec(str1)
+  console.log(res1);
+  
+  let str2 = "SELECT * FROM players;" //"SELECT name FROM sqlite_master WHERE type='table';"
+  let res2 = db.exec(str2)
+  console.log(res2);
 }
 
-const response = await fetch("https://8neon8.github.io/smash-zulia-games/testdb.db")
-const arrayBuffer = await response.arrayBuffer();
 
+async function getDB(){
+  const SQL = await initSqlJs({
+    locateFile: file => `https://sql.js.org/dist/${file}`
+  });
+  
+  const db = new SQL.Database(new Uint8Array( await getDBFile()))
 
-initSqlJs(config).then(function(SQL){
+  return db
+}
 
-  const db = new SQL.Database(new Uint8Array(arrayBuffer))
-
-  const res = db.exec("SELECT * FROM test");
-  console.log(res);
-
-});
+async function getDBFile(){
+  let response = await fetch("https://8neon8.github.io/smash-zulia-games/testdb.db")
+  let arrayBuffer = await response.arrayBuffer();
+  return arrayBuffer
+}
 
 
 let setList = gamesInfo.setList
@@ -180,7 +206,7 @@ function createListItem(itemList){
 
     let playerOneCharImg = makeEl('img')
     //*convert al images to webp, name them exactly like character name to search the image 1:1
-    playerOneCharImg.setAttribute('src','https://8neon8.github.io/smash-zulia-games/img/chara_0_mario_00.png')
+    playerOneCharImg.setAttribute('src',`/img/${itemList[i].playerOne.char}.webp`)
     addClasses(playerOneCharImg, ['player-character'])
 
     if(itemList[i].setCount[0] > itemList[i].setCount[1]){
@@ -247,7 +273,7 @@ function createListItem(itemList){
 
     let playerTwoCharImg = makeEl('img')
     //*convert al images to webp, name them exactly like character name to search the image 1:1
-    playerTwoCharImg.setAttribute('src','/img/chara_0_mario_00.png')
+    playerTwoCharImg.setAttribute('src',`/img/${itemList[i].playerTwo.char}.webp`)
     addClasses(playerTwoCharImg, ['player-character'])
 
     if(itemList[i].setCount[1] > itemList[i].setCount[0]){
