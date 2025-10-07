@@ -11,9 +11,8 @@
     <!-- <a href="http://" target="_blank" rel="noopener noreferrer">Twitch</a> -->
     <a href="https://www.youtube.com/@SmashZulia-OF" target="_blank" rel="noopener noreferrer">Youtube</a>
     <a href="https://twitter.com/SmashZulia" target="_blank" rel="noopener noreferrer">Twitter</a>
-    <a href="#" target="_blank" rel="noopener noreferrer">Stats</a>
     <a href="http://" target="_blank" rel="noopener noreferrer">Github</a>
-    <a href="/dbupdate/dbupdate.html">update</a>
+    <a href="#" target="_blank" rel="noopener noreferrer">Stats</a>
   </nav>
 
   <div id="help-dialog" class="help-dialog hidden">
@@ -79,10 +78,8 @@
   
 
         <div class="middle-filters filters-section" name="details">
-          <label class="filter-label" for="details">Detalles</label>
-          <select name="dateFil" id="date-filter" class="filter-input">
-            <option value="">Fecha</option>
-          </select>
+          <label class="filter-label" for="details"">Detalles</label>
+          <input type="date" name="dateFil" id="date-filter" class="filter-input"/>
   
           <select name="tournamentFil" id="tournament-filter" class="filter-input">
             <option value="">Torneo</option>
@@ -100,6 +97,7 @@
         </div>
         
       </div>
+
       <div class="search-container">
         <button class="search-button" id="search-button">
           <span class="button-label en hidden">Search</span>
