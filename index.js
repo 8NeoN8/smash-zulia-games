@@ -100,7 +100,7 @@ async function getDB(){
 }
 
 async function getDBFile(){
-  let response = await fetch("/testdb.db") //*https://8neon8.github.io/smash-zulia-games
+  let response = await fetch("https://8neon8.github.io/smash-zulia-games/testdb.db") //*https://8neon8.github.io/smash-zulia-games
   let arrayBuffer = await response.arrayBuffer();
   return arrayBuffer
 }
