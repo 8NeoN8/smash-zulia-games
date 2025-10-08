@@ -54,15 +54,15 @@ function charSuggestions(){
 function playerSuggestions(){
   for (let i = 0; i < playerList.length; i++) {
     let option = document.createElement('option')
-    option.value = playerList[i][0]
-    option.innerText = playerList[i][1]
+    option.value = playerList[i].id
+    option.innerText = playerList[i].name
     option.innerText = option.innerText.toUpperCase()
     player1Filter.appendChild(option)
   }
   for (let i = 0; i < playerList.length; i++) {
     let option = document.createElement('option')
-    option.value = playerList[i][0]
-    option.innerText = playerList[i][1]
+    option.value = playerList[i].id
+    option.innerText = playerList[i].name
     option.innerText = option.innerText.toUpperCase()
     player2Filter.appendChild(option)
   }
@@ -115,6 +115,7 @@ async function db_getPlayerList(){
   let columns = null
   let objectifiedData = null
 
+
   if(res.length > 0){
     res = res[0]
     columns = res.columns
@@ -128,6 +129,7 @@ async function db_getPlayerList(){
       return obj
     })
     playerList = objectifiedData
+    console.log(playerList);
     playerSuggestions()
     return
   }
