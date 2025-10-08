@@ -256,7 +256,7 @@ function createListItem(itemList){
     playerOneSection.appendChild(playerOneName)
 
     let playerOneCharImg = makeEl('img')
-    playerOneCharImg.setAttribute('src',`/img/${itemList[i].charOne}.webp`)
+    playerOneCharImg.setAttribute('src',`https://8neon8.github.io/smash-zulia-games/img/${itemList[i].charOne}.webp`)
     addClasses(playerOneCharImg, ['player-character'])
 
     if(itemList[i].ScoreOne > itemList[i].scoreTwo){
@@ -322,7 +322,7 @@ function createListItem(itemList){
     playerTwoSection.appendChild(playerTwoName)
 
     let playerTwoCharImg = makeEl('img')
-    playerTwoCharImg.setAttribute('src',`/img/${itemList[i].charTwo}.webp`)
+    playerTwoCharImg.setAttribute('src',`https://8neon8.github.io/smash-zulia-games/img/${itemList[i].charTwo}.webp`)
     addClasses(playerTwoCharImg, ['player-character'])
 
     if(itemList[i].scoreTwo > itemList[i].scoreOne){
