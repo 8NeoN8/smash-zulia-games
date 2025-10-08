@@ -261,10 +261,6 @@ function createListItem(itemList){
     playerOneCharImg.setAttribute('src',`https://8neon8.github.io/smash-zulia-games/img/${itemList[i].charOne}.webp`)
     addClasses(playerOneCharImg, ['player-character'])
 
-    if(itemList[i].ScoreOne > itemList[i].scoreTwo){
-      addClasses(playerOneCharImg, ['winner-char'])
-    }else addClasses(playerOneCharImg, ['loser-char'])
-
     playerOneSection.appendChild(playerOneCharImg)
 
     let setData = makeEl('div')
@@ -292,18 +288,6 @@ function createListItem(itemList){
     setResult.appendChild(result1)
     setResult.appendChild(result2)
 
-    if(itemList[i].scoreOne > itemList[i].scoreTwo){
-      result1.classList.remove('loser-count')
-      addClasses(result1, ['winner-count'])
-      result2.classList.remove('winner-count')
-      addClasses(result2, ['loser-count'])
-    }else{
-      result2.classList.remove('loser-count')
-      addClasses(result2, ['winner-count'])
-      result1.classList.remove('winner-count')
-      addClasses(result1, ['loser-count'])
-    }
-    
     setData.appendChild(setResult)
 
     let setLink = makeEl('a')
@@ -325,13 +309,30 @@ function createListItem(itemList){
 
     let playerTwoCharImg = makeEl('img')
     playerTwoCharImg.setAttribute('src',`https://8neon8.github.io/smash-zulia-games/img/${itemList[i].charTwo}.webp`)
-    addClasses(playerTwoCharImg, ['player-character'])
+    addClasses(playerTwoCharImg, ['player-character'])    
+
+    playerTwoSection.appendChild(playerTwoCharImg)
+
+
+    if(itemList[i].scoreOne > itemList[i].scoreTwo){
+      addClasses(playerOneCharImg, ['winner-char'])
+    }else addClasses(playerOneCharImg, ['loser-char'])
 
     if(itemList[i].scoreTwo > itemList[i].scoreOne){
       addClasses(playerTwoCharImg, ['winner-char'])
     }else addClasses(playerTwoCharImg, ['loser-char'])
 
-    playerTwoSection.appendChild(playerTwoCharImg)
+    if(itemList[i].scoreOne > itemList[i].scoreTwo){
+      addClasses(result1, ['winner-count'])
+      addClasses(result2, ['loser-count'])
+      result1.classList.remove('loser-count')
+      result2.classList.remove('winner-count')
+    }else{
+      addClasses(result1, ['loser-count'])
+      addClasses(result2, ['winner-count'])
+      result2.classList.remove('loser-count')
+      result1.classList.remove('winner-count')
+    }
 
     list.appendChild(itemContainer)
   }
