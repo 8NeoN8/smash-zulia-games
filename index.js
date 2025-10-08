@@ -272,7 +272,7 @@ function createListItem(itemList){
     let setTournament = makeEl('div')
     addClasses(setTournament, ['set-tournament'])
     setTournament.setAttribute('title', itemList[i].tournament.name)
-    setTournament.innerText = itemList[i].tournament.name
+    setTournament.innerText = itemList[i].tournament.name.toUpperCase()
     setData.appendChild(setTournament)
 
     let setDate = makeEl('div')
