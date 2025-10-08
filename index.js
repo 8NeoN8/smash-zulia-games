@@ -176,7 +176,7 @@ async function db_searchSets(){
 
   if(isDate){
 
-    let isTourney = tournamentList.findAll(tourney => tourney.date = isDate)
+    let isTourney = tournamentList.find(tourney => tourney.date = isDate)
     console.log(isTourney);
     if(isTourney.length == 0) return
     if(isTourney.length == 1) str += `tournament = ${isTourney[0].id} AND `
@@ -312,7 +312,6 @@ function createListItem(itemList){
     addClasses(playerTwoCharImg, ['player-character'])    
 
     playerTwoSection.appendChild(playerTwoCharImg)
-
 
     if(itemList[i].scoreOne > itemList[i].scoreTwo){
       addClasses(playerOneCharImg, ['winner-char'])
