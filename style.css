@@ -22,7 +22,7 @@
   background-color: var(--madison);
   color: var(--pampas);
   width: 100%;
-  min-height: 96vh;
+  min-height: 95.2vh;
   overflow-y: auto;
   justify-items: center;
 }
@@ -63,6 +63,18 @@
   font-size: 1.1rem;
 }
 
+.label-p1{
+  text-align: left;
+}
+
+.label-details{
+  text-align: center;
+}
+
+.label-p2{
+  text-align: right;
+}
+
 .filters-section{
   display: flex;
   flex-direction: column;
@@ -81,6 +93,21 @@
   color: var(--pampas);
   border-radius: 8px;
   border: var(--astral) solid 1px;
+  appearance: base-select;
+}
+
+option{
+  color: var(--pampas);
+}
+
+.filter-input::picker-icon{
+  transition: 0.2s rotate;
+  padding-right: 0.25rem;
+}
+
+.filter-input:open::picker-icon{
+  rotate: 180deg;
+  color: var(--pampas);
 }
 
 .search-container{
@@ -124,6 +151,7 @@
   background-color: var(--mine-shaft);
   border-radius: 8px;
   margin-bottom: 0.5rem;
+  padding: 0.75rem 0;
 }
 
 .item-section{
@@ -197,8 +225,11 @@
 }
 
 .help-button{
+  position: absolute;
+  top: -40px;
+  right: 10px;
+  display: inline-block;
   margin-top: 3rem;
-  float: right;
   background-color: var(--pampas);
   z-index: 10;
   border-radius: 50%;
@@ -311,6 +342,10 @@
 
 @media screen and (min-width: 1200px) {
 
+  .main-container{
+    min-height: 95.8vh;
+  }
+
   .navbar{
     justify-content: space-around;
   }
@@ -358,6 +393,18 @@
     display: flex;
     justify-content: space-evenly;
     gap: 2rem;
+  }
+  
+  .filters-section{
+    width: 33%;
+  }
+
+  .label-p1{
+    padding-left: 0.5rem;
+  }
+
+  .label-p2{
+    padding-right: 0.5rem;
   }
 
   .help-dialog{

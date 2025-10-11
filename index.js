@@ -7,6 +7,7 @@ let searchButton = document.getElementById('search-button')
 let playerList = []
 let setList = []
 let charList = ['mario','dk','link','samus','dsamus','yoshi','kirby','fox','pikachu','luigi','ness','cf','jigglypuff','peach','daisy','bowser','ics','sheik','zelda','drmario','pichu','falco','marth','lucina','yink','ganondorf','mewtwo','roy','chrom','gnw','mk','pit','dpit','zss','wario','snake','ike','pt','ddk','lucas','sonic','ddd','olimar','lucario','rob','tink','wolf','villager','megaman','wiifit','rosalina','lmac','greninja','mfighter','mgunner','msword','palutena','pac-man','robin','shulk','jr','duckhunt','ryu','ken','cloud','corrin','bayonetta','inkling','ridley','simon','ritcher','kkrool','isabelle','incineroar','plant','joker','hero','bnk','terry','byleth','minmin','steve','sephiroth','pythra','kazuya','sora']
+charList = charList.sort()
 let tournamentList = []
 
 let char1Filter = document.getElementById('char-filter-one')
@@ -36,11 +37,74 @@ function getOptionValue(option){
   return option.value ? option.value : null
 }
 
+function getDisplayName(char){
+  switch (char) {
+    case 'dk':
+      return 'donkey kong'
+    case 'dsamus':
+      return 'dark samus'
+    case 'cf':
+      return 'captain falcon'
+    case 'ics':
+      return 'ice climbers'
+    case 'drmario':
+      return 'dr mario'
+    case 'yink':
+      return 'young link'
+    case 'gnw':
+      return 'mr. game & watch'
+    case 'mk':
+      return 'meta knight'
+    case 'dpit':
+      return 'dark pit'
+    case 'zss':
+      return 'zero suit samus'
+    case 'pt':
+      return 'pokemon trainer'
+    case 'ddk':
+      return 'diddy kong'
+    case 'ddd':
+      return 'king dedede'
+    case 'rob':
+      return 'r.o.b'
+    case 'tink':
+      return 'toon link'
+    case 'wiifit':
+      return 'wii fit trainer'
+    case 'rosalina':
+      return 'rosalina & luma'
+    case 'lmac':
+      return 'little mac'
+    case 'mfighter':
+      return 'mii fighter'
+    case 'mgunner':
+      return 'mii gunner'
+    case 'msword':
+      return 'mii swordfighter'
+    case 'jr':
+      return 'bowser jr'
+    case 'duckhunt':
+      return 'duck hunt'
+    case 'kkrool':
+      return 'king k. rool'
+    case 'plant':
+      return 'piranha plant'
+    case 'bnk':
+      return 'banjo & kazooie'
+    case 'minmin':
+      return 'min min'
+    case 'pythra':
+      return 'pyra & mythra'
+    default:
+      return char;
+  }
+}
+
 function charSuggestions(){
   for (let i = 0; i < charList.length; i++) {
     let option = document.createElement('option')
     option.value = charList[i]
-    option.innerText = charList[i].toUpperCase()
+    option.innerText = (getDisplayName(charList[i])).toUpperCase()
     char1Filter.appendChild(option)
   }
   for (let i = 0; i < charList.length; i++) {
@@ -129,7 +193,7 @@ async function db_getPlayerList(){
       return obj
     })
     playerList = objectifiedData
-    console.log(playerList);
+    playerList.sort((a, b) => a.name.localeCompare(b.name))
     playerSuggestions()
     return
   }
@@ -158,6 +222,9 @@ async function db_getTournaments(){
     })
 
     tournamentList = objectifiedData
+
+    tournamentList.sort((a, b) => a.name.localeCompare(b.name))
+
     tourneySuggestions()
     return
   }
@@ -188,7 +255,7 @@ async function db_searchSets(){
 
   if(isPlayerTwo && !isPlayerOne) str += `playerTwo = ${isPlayerTwo} OR playerOne = ${isPlayerTwo} AND `
 
-  if(isPlayerOne && isPlayerTwo) str += `playerOne = ${isPlayerOne} OR playerTwo = ${isPlayerOne} AND playerTwo = ${isPlayerTwo} OR playerOne = ${isPlayerTwo}`
+  if(isPlayerOne && isPlayerTwo) str += `(playerOne = ${isPlayerOne} AND playerTwo = ${isPlayerTwo}) OR (playerOne = ${isPlayerTwo} AND playerTwo = ${isPlayerOne})`
 
   if(isCharacterOne && !isCharacterTwo) str += `charOne = '${isCharacterOne}' OR charTwo = '${isCharacterOne}' AND `
 
@@ -233,7 +300,9 @@ async function db_searchSets(){
     });
 
     createListItem(setList)
-    return
+  }
+  if(res.length == 0){
+    
   }
 }
 

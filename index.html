@@ -3,22 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smash Zulia Sets</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Smash Zulia Games</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="https://8neon8.github.io/smash-zulia-games/icons/SmashBrosSymbol.svg" type="image/svg">
+
+  <meta http-equiv="Cache-control" content="no-cache">
+
+  <meta name="keywords" content="Smash Ultimate, VODs, Matches History">
+  <meta name="author" content="AGDevs">
+  <meta name="description" content="Una herramienta para encontrar rapidamente partidas de torneo que se han transmitido en la comunidad de smash zulia">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="og:type" content="website">
+  <meta name="og:title" content="Smash Zulia Games">
+  <meta name="og:description" content="Busca rapidamente partidas transmitidas en torneos Zulianos de Smash Ultimate">
+  <meta name="og:image" content="">
+  <meta name="og:url" content="permalink">
 </head>
 <body>
   <nav class="navbar">
     <!-- <a href="http://" target="_blank" rel="noopener noreferrer">Twitch</a> -->
     <a href="https://www.youtube.com/@SmashZulia-OF" target="_blank" rel="noopener noreferrer">Youtube</a>
     <a href="https://twitter.com/SmashZulia" target="_blank" rel="noopener noreferrer">Twitter</a>
-    <a href="http://" target="_blank" rel="noopener noreferrer">Github</a>
+    <a href="http://https://github.com/8NeoN8/smash-zulia-games" target="_blank" rel="noopener noreferrer">Github</a>
     <a href="#" target="_blank" rel="noopener noreferrer">Stats</a>
   </nav>
 
   <div id="help-dialog" class="help-dialog hidden">
 
     <div class="faq">
-      <img src="x.svg" id="close-dialog" width="25px" height="25px" >
+      <img src="https://8neon8.github.io/smash-zulia-games/icons/" id="close-dialog" width="25px" height="25px" >
       <h2 style="text-align: center;">Preguntas Frec.</h2>
 
       <ul class="faq-list">
@@ -50,24 +64,19 @@
   </div>
 
   <main class="main-container">
+    <div class="help-button" id="help-button">
+      <img src="https://8neon8.github.io/smash-zulia-games/icons/help-circle.svg" class="help-icon" width="40px" height="40px">
+    </div>
     <div class="content">
-
-      <div class="help-button" id="help-button">
-        <img src="https://8neon8.github.io/smash-zulia-games/help-circle.svg" class="help-icon" width="40px" height="40px">
-      </div>
 
       <h1 class="page-header es"> Historial de Partidas de Smash Zulia</h1>
   
-      <h1 class="page-header en hidden">SMASH ZULIA SET SEARCHER</h1>
-  
       <h2 class="page-subheader es">Busca cualquier set de torneo que se haya grabado o transmitido</h2>
-  
-      <h2 class="page-subheader en hidden">Search for any set in a Zulia Tournament that has been recorded or streamed</h2>
     
       <div class="filters">
   
         <div class="left-filters filters-section" name="player-one">
-          <label class="filter-label" for="player-one">Jugador 1</label>
+          <label class="filter-label label-p1" for="player-one">Jugador 1</label>
           <select name="charFil1" id="char-filter-one" class="filter-input">
             <option value="">Personaje</option>
           </select>
@@ -78,7 +87,7 @@
   
 
         <div class="middle-filters filters-section" name="details">
-          <label class="filter-label" for="details"">Detalles</label>
+          <label class="filter-label label-details" for="details"">Detalles</label>
           <input type="date" name="dateFil" id="date-filter" class="filter-input"/>
   
           <select name="tournamentFil" id="tournament-filter" class="filter-input">
@@ -87,7 +96,7 @@
         </div>
   
         <div class="right-filters filters-section" name="player-two">
-          <label class="filter-label" for="player-two">Jugador 2</label>
+          <label class="filter-label label-p2" for="player-two">Jugador 2</label>
           <select name="charFil2" id="char-filter-two" class="filter-input">
             <option value="">Personaje</option>
           </select>
@@ -136,11 +145,6 @@
         </ul>
       </div>
     </div>
-  
-  
-    <!-- <a id="testlink" target="_blank" href="https://www.youtube.com/live/6i6QtlFK3jw?si=P2FFXnNj2GP3gAfd&t=22440">
-      Click here to watch amesty-pelox grand finals
-    </a> -->
   </main>
 
   <script src="https://unpkg.com/sql.js/dist/sql-wasm.js"></script>
