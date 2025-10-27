@@ -10,12 +10,23 @@ let charList = ['mario','dk','link','samus','dsamus','yoshi','kirby','fox','pika
 charList = charList.sort()
 let tournamentList = []
 
+let currentPage = 1
+let pageSteps = 10
+let pageAmount = 0
+let paginatedList = []
+
 let char1Filter = document.getElementById('char-filter-one')
 let player1Filter = document.getElementById('player-filter-one')
 let char2Filter = document.getElementById('char-filter-two')
 let player2Filter = document.getElementById('player-filter-two')
 let dateFilter = document.getElementById('date-filter')
 let tournamentFilter = document.getElementById('tournament-filter')
+
+let prevButton = document.getElementById('prev')
+let nextButton = document.getElementById('next')
+let pageDisplay = document.getElementById('pageDisplay')
+let jumpButton = document.getElementById('jump-button')
+let jumpInput = document.getElementById('jump-input')
 
 openDialog.addEventListener('click', () => {
   helpDialog.classList.remove('hidden')
@@ -144,11 +155,11 @@ function tourneySuggestions(){
 async function testDB(){
   const db = await getDB()
 
-  let str1 = "SELECT name FROM sqlite_master WHERE type='table';" //"SELECT name FROM sqlite_master WHERE type='table';"
+  let str1 = "SELECT name FROM sqlite_master WHERE type='table';"
   let res1 = db.exec(str1)
   console.log(res1);
   
-  let str2 = "SELECT * FROM players;" //"SELECT name FROM sqlite_master WHERE type='table';"
+  let str2 = "SELECT * FROM players;"
   let res2 = db.exec(str2)
   console.log(res2);
 }
@@ -164,7 +175,7 @@ async function getDB(){
 }
 
 async function getDBFile(){
-  let response = await fetch("https://8neon8.github.io/smash-zulia-games/testdb.db") //*https://8neon8.github.io/smash-zulia-games
+  let response = await fetch("https://8neon8.github.io/smash-zulia-games/testdb.db")
   let arrayBuffer = await response.arrayBuffer();
   return arrayBuffer
 }
@@ -244,7 +255,6 @@ async function db_searchSets(){
   if(isDate){
 
     let isTourney = tournamentList.find(tourney => tourney.date = isDate)
-    console.log(isTourney);
     if(isTourney.length == 0) return
     if(isTourney.length == 1) str += `tournament = ${isTourney[0].id} AND `
     //*make it so if there is more than 1 tournament on the same day it searches for all tournaments
@@ -299,7 +309,7 @@ async function db_searchSets(){
       set.tournament = tournamentList.find(tournament => tournament.id == set.tournament)
     });
 
-    createListItem(setList)
+    paginateList(setList)
   }
   if(res.length == 0){
     
@@ -403,6 +413,58 @@ function createListItem(itemList){
     }
 
     list.appendChild(itemContainer)
+  }
+}
+
+function paginateList(){
+  pageAmount = Math.ceil(setList.length/pageSteps)
+
+  paginatedList = setList.slice(0, pageSteps)
+
+  createListItem(paginatedList)
+  document.getElementById('paginator').classList.remove('hidden')
+}
+
+prevButton.addEventListener('click', () => {
+  listPrev()
+})
+
+nextButton.addEventListener('click', () => {
+  listNext()
+})
+
+jumpButton.addEventListener('click', () => {
+  jumpToPage()
+})
+
+function listNext(){
+  if(currentPage < pageAmount){
+    let lastPos = currentPage*pageSteps
+    currentPage++
+    pageDisplay.innerText = currentPage
+    paginatedList = setList.slice(lastPos, lastPos+pageSteps)
+    createListItem(paginatedList)
+  }
+  
+}
+
+function listPrev(){
+  if(currentPage > 1){
+    let lastPos = (currentPage*pageSteps) - pageSteps
+    currentPage--
+    pageDisplay.innerText = currentPage
+    paginatedList = setList.slice(lastPos-pageSteps, lastPos)
+    createListItem(paginatedList)
+  }
+}
+
+function jumpToPage(){
+  if(currentPage > 0 && currentPage <= pageAmount){
+    currentPage = jumpInput.value
+    let lastPos = (currentPage - 1) * pageSteps
+    pageDisplay.innerText = currentPage
+    paginatedList = setList.slice(lastPos, lastPos+pageSteps)
+    createListItem(paginatedList)
   }
 }
 

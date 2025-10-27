@@ -18,13 +18,15 @@
   position: relative;
 }
 
+
 .main-container{
   background-color: var(--madison);
   color: var(--pampas);
   width: 100%;
-  min-height: 95.2vh;
+  min-height: 96vh;
   overflow-y: auto;
   justify-items: center;
+  height: fit-content;
 }
 
 .navbar{
@@ -148,7 +150,7 @@ option{
 .game-list-item{
   display: flex;
   justify-content:space-around;
-  background-color: var(--mine-shaft);
+  background-color: var(--comet);
   border-radius: 8px;
   margin-bottom: 0.5rem;
   padding: 0.75rem 0;
@@ -158,6 +160,7 @@ option{
   width: 33%;
   display: flex;
   flex-direction: column;
+  
 }
 
 .player-one, .player-two{
@@ -181,11 +184,11 @@ option{
 }
 
 .winner-count{
-  color: lime;
+  color: rgb(109, 218, 109);
 }
 
 .loser-count{
-  color: red;
+  color: rgb(242, 87, 87);
 }
 
 .set-tournament{
@@ -204,10 +207,20 @@ option{
   display: flex;
   gap: 1rem;
   justify-content: center;
+  width: 3rem;
+  align-self: center;
+  background-color: var(--mine-shaft);
+  border-radius: 8px;
+}
+
+.set-result > span{
+  font-weight: bolder;
 }
 
 .set-link{
   color: var(--calico);
+  width: 3rem;
+  align-self: center;
 }
 
 .player-character{
@@ -260,6 +273,7 @@ option{
   align-items: center;
   justify-items: center;
   padding: 1rem;
+  overflow-y: scroll;
 }
 
 .faq{
@@ -278,6 +292,12 @@ option{
 .faq-list-item{
   margin-bottom: 1rem;
 }
+
+.faq-list-item-text > a{
+  color: var(--calico);
+  text-decoration: none;
+}
+
 
 .faq-list-item-title{
   text-align: center;
@@ -303,6 +323,92 @@ option{
 #close-dialog:active{
   background-color: var(--cloudy);
 }
+
+.paginator{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: text-bottom;
+  
+}
+
+.paginator-buttons{
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.prev, .next{
+  background-color: var(--calico);
+  color: var(--madison);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid var(--astral);
+}
+
+.prev:hover, .next:hover, .jump-button:hover{
+  cursor: pointer;
+}
+
+.prev
+
+.prev:active, .next:active{
+  background-color: var(--astral);
+}
+
+.page{
+  font-weight: bolder;
+  line-height: 1.5rem;
+  color: var(--calico);
+}
+
+.next{
+}
+
+.paginator-jump{
+  width: 50%;
+  text-align: center;
+}
+
+.jump-button{
+  background-color: var(--astral);
+  color: var(--calico);
+  text-decoration: underline;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 8px;
+}
+
+.jump-button:active{
+background-color: var(--mine-shaft);
+}
+
+.jump{
+  text-align: center;
+  background-color: var(--astral);
+  color: var(--calico);
+  width: 1.5rem;
+  height: 1.8rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bolder;
+}
+
+.jump:active, .jump:focus{
+  outline: none;
+  border: none;
+}
+
+.jump::-webkit-outer-spin-button, .jump::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 
 @keyframes winner-glow {
   0%{

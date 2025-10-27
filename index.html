@@ -22,7 +22,6 @@
 </head>
 <body>
   <nav class="navbar">
-    <!-- <a href="http://" target="_blank" rel="noopener noreferrer">Twitch</a> -->
     <a href="https://www.youtube.com/@SmashZulia-OF" target="_blank" rel="noopener noreferrer">Youtube</a>
     <a href="https://twitter.com/SmashZulia" target="_blank" rel="noopener noreferrer">Twitter</a>
     <a href="http://https://github.com/8NeoN8/smash-zulia-games" target="_blank" rel="noopener noreferrer">Github</a>
@@ -30,9 +29,8 @@
   </nav>
 
   <div id="help-dialog" class="help-dialog hidden">
-
     <div class="faq">
-      <img src="https://8neon8.github.io/smash-zulia-games/icons/" id="close-dialog" width="25px" height="25px" >
+      <img src="https://8neon8.github.io/smash-zulia-games/icons/x.svg" id="close-dialog" width="25px" height="25px" >
       <h2 style="text-align: center;">Preguntas Frec.</h2>
 
       <ul class="faq-list">
@@ -54,11 +52,26 @@
         <li class="faq-list-item">
           <h4 class="faq-list-item-title">¿Puedo ayudar a llenar la informacion de las partidas?</h4>
           <p class="faq-list-item-text">
-            En resumen, si, por ahora solo a travez de este <a href="#" target="_blank" rel="noopener noreferrer" style="color: var(--calico); text-decoration: none;">formulario de google(WIP)</a>, y asi solo tendria que revisar que el link sea correcto, toda ayuda se agradece.
+            En resumen, si, por ahora solo a travez de este <a href="#" target="_blank" rel="noopener noreferrer">formulario de google(WIP)</a>, y asi solo tendria que revisar que el link sea correcto, toda ayuda se agradece.
             
             Por favor asegurarse que el link contiene el tiempo en donde empieza el set.
           </p>
         </li>
+
+        <li class="faq-list-item">
+          <h4 class="faq-list-item-title">El link de X set esta mal</h4>
+          <p class="faq-list-item-text">
+            Reportalo <a href="#">aqui</a> para poder identificarlo y arreglarlo.
+          </p>
+        </li>
+
+        <li class="faq-list-item">
+          <h4 class="faq-list-item-title">En X partida Y jugador uso mas de un personaje pero solo aparece uno en la pagina</h4>
+          <p class="faq-list-item-text">
+            Por ahora, solo se esta listando un personaje por jugador, el personaje que uso mas partidas, o el que eligio primero si se jugaron la misma cantidad de partidas con cada personaje. <br> En un futuro se listaran todos los personajes jugados por cada jugador.
+          </p>
+        </li>
+
       </ul>
     </div>
   </div>
@@ -143,6 +156,21 @@
             </div>
           </li> -->
         </ul>
+      </div>
+
+      <div id="paginator" class="paginator">
+
+        <div class="paginator-buttons">
+          <img id="prev" class="prev" src="/icons/chevron-left.svg"/>
+          <div id="pageDisplay" class="page"> 1 </div>
+          <img id="next" class="next" src="/icons/chevron-right.svg"/>
+        </div>
+
+        <div class="paginator-jump">
+          <button id="jump-button" class="jump-button">Saltar a:</button>
+          <input id="jump-input" type="number" class="jump" step="1" value="1" min="1">
+        </div>
+        
       </div>
     </div>
   </main>
