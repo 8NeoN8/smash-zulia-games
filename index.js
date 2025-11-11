@@ -175,7 +175,7 @@ async function getDB(){
 }
 
 async function getDBFile(){
-  let response = await fetch("https://8neon8.github.io/smash-zulia-games/testdb.db")
+  let response = await fetch("https://8neon8.github.io/smash-zulia-games/testdb.db") //https://8neon8.github.io/smash-zulia-games
   let arrayBuffer = await response.arrayBuffer();
   return arrayBuffer
 }
@@ -273,13 +273,15 @@ async function db_searchSets(){
 
   if(isCharacterOne && isCharacterTwo) str += `charOne = '${isCharacterOne}' OR charTwo = '${isCharacterOne}' AND charTwo = '${isCharacterTwo}' OR charOne = '${isCharacterTwo}' AND `
 
-  if(isTournament && !isDate) str += `tournament = '${isTournament}' AND `
+  if(isTournament && !isDate) str += `tournament = ${isTournament} AND `
 
   if(str[str.length-1] == ' ' && str[str.length-2] != 'E' && str[str.length-2] != 'D') str = str.slice(0, -2)
 
   if(str[str.length-1] == ' ' && str[str.length-2] === 'E') str = str.replaceAll(' WHERE ', '')
   
   if(str[str.length-1] == ' ' && str[str.length-2] === 'D') str = str.slice(0,-4)
+
+  console.log(str);
 
   let res = db.exec(str)
 
@@ -337,7 +339,7 @@ function createListItem(itemList){
     playerOneSection.appendChild(playerOneName)
 
     let playerOneCharImg = makeEl('img')
-    playerOneCharImg.setAttribute('src',`https://8neon8.github.io/smash-zulia-games/img/${itemList[i].charOne}.webp`)
+    playerOneCharImg.setAttribute('src',`https://8neon8.github.io/smash-zulia-games/img/${itemList[i].charOne}.webp`) //https://8neon8.github.io/smash-zulia-games
     addClasses(playerOneCharImg, ['player-character'])
 
     playerOneSection.appendChild(playerOneCharImg)
@@ -387,7 +389,7 @@ function createListItem(itemList){
     playerTwoSection.appendChild(playerTwoName)
 
     let playerTwoCharImg = makeEl('img')
-    playerTwoCharImg.setAttribute('src',`https://8neon8.github.io/smash-zulia-games/img/${itemList[i].charTwo}.webp`)
+    playerTwoCharImg.setAttribute('src',`https://8neon8.github.io/smash-zulia-games/img/${itemList[i].charTwo}.webp`) //https://8neon8.github.io/smash-zulia-games
     addClasses(playerTwoCharImg, ['player-character'])    
 
     playerTwoSection.appendChild(playerTwoCharImg)
